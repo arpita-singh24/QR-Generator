@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="images/Qr img.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+
+        body {
+            height: 100vh;
+            font-family: 'Nunito Sans', sans-serif;
+            background-image: linear-gradient(to bottom right, rgb(246, 124, 218), rgb(110, 180, 246));
+            overflow: hidden;
+            /* transition: all 0.1s ease; */
+
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 2.0rem;
+            font-size: 2.4rem;
+
+        }
+
+        #card {
+
+            border-radius: 0.7rem;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.16);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8.2px);
+            -webkit-backdrop-filter: blur(8.2px);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+        }
+
+        label {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px 12px;
+            font-size: 1.1rem;
+            border: outset;
+            border-radius: 0.2rem;
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.16);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8.2px);
+            -webkit-backdrop-filter: blur(8.2px);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+
+        }
+
+        input:focus {
+            border-color: #6a6866;
+            /* Change to your desired border color */
+            outline: none;
+        }
+
+        ::placeholder {
+            font-size: 0.8rem;
+        }
+
+        .btn-container {
+            display: flex;
+            margin: auto;
+            margin-top: 12px;
+        }
+
+        button {
+            margin-top: 0.5rem;
+            align-self: center;
+            background-color: #15bd3a;
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            border-radius: 0.3rem;
+            padding: 10px 20px;
+            transition: all 0.1s ease;
+        }
+
+        .btns:hover {
+            transform: scale(1.1);
+        }
+
+        #dwnload {
+            margin-left: 0.8rem;
+        }
+
+        #qr-img {
+            /* border: 2px solid red; */
+            margin: auto;
+            margin-top: 0.8rem;
+        }
+
+        @media print {
+
+            /* #card{
+                display:contents;
+
+            } */
+            input {
+                display: none;
+            }
+
+            #dwnload {
+                display: none;
+            }
+
+            #submit {
+                display: none;
+            }
+
+            label {
+                display: none;
+            }
+
+            #card {
+                box-shadow: none;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>QR Generator</h1>
+    <div id="card">
+        <label for="name">Enter URL:</label>
+        <input type="text" id="f_name" placeholder="Enter URL here..." name="name" />
+
+        <img src="" alt="" id="qr-img" height="150px" width="150px" hidden>
+        <div class="btn-container"><button id="submit" class="btns" onclick="qrCode()">SUBMIT</button>
+            <button id="dwnload" class="btns" onclick="dwn()">DOWNLOAD</button>
+        </div>
+
+    </div>
+
+    </div>
+    <script src="qrcode.js"></script>
+</body>
+
+</html>
